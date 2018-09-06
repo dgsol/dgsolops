@@ -1,1 +1,11 @@
-[]
+[
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Purchase Invoice", 
+  "modified": "2018-09-02 05:41:59.875553", 
+  "name": "Purchase Invoice-Client", 
+  "script": "frappe.ui.form.on('Purchase Invoice', {\n\tbefore_submit: function(frm) {\n\t\tif (!frm.doc.bill_no) {\n\t\t\tfrappe.throw(__(\"Supplier Invoice No is required\"))\n\t\t}\n\t\tif (!frm.doc.bill_date) {\n\t\t\tfrappe.throw(__(\"Supplier Invoice Date is required\"))\n\t\t}\n\t\tif (frm.doc.supplier == \"Reseller Club\") {\n\t\t\tif (!frm.doc.rc_order_no) {\n\t\t\t\tfrappe.throw(__(\"RC Order No is required\"))\n\t\t\t}\n\t\t\tif (!frm.doc.rc_ref_no) {\n\t\t\t\tfrappe.throw(__(\"RC Transaction No is required\"))\n\t\t\t}\n\t\t}\n\t}\n}); ", 
+  "script_type": "Client"
+ }
+]
